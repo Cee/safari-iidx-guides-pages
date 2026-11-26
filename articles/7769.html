@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IIDX（弐寺）PS2 专控连接 PC・INFINITAS・BMS 游玩教程｜转接器・注意事项・防卡键改造｜IIDX 中文攻略库</title>
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <span class="pill">IIDX 中文库</span>
+        <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">IIDX（弐寺）PS2 专控连接 PC・INFINITAS・BMS 游玩教程｜转接器・注意事项・防卡键改造</span>
+      </a>
+      <div class="topbar-actions">
+        <a class="btn-ghost" href="../index.html">← 全部文章</a>
+        <button id="theme-toggle" class="btn-ghost" type="button">明暗切换</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="article-shell">
+    <div>
+      <article class="article-card">
+        <div class="article-header">
+          <div class="meta-row">
+            <span class="cat-badge">INFINITAS 与硬件</span>
+            <span>发布：2026.11.23</span>
+            <span>·</span>
+            <a href="https://the-safari.com/7769" target="_blank" rel="noopener noreferrer">原文 #7769 ↗</a>
+          </div>
+          <h1>IIDX（弐寺）PS2 专控连接 PC・INFINITAS・BMS 游玩教程｜转接器・注意事项・防卡键改造</h1>
+          <p class="orig-title">原文标题：弐寺のPS2専コンをPC・INFINITAS・BMSで使う方法｜コンバーター・注意点・ハマりを減らす改造</p>
+          <div class="author-row">
+            <div class="avatar">か</div>
+            <div>
+              <div style="font-weight:700;color:var(--fg);">原作者：かみゆー（サファリドットコム）</div>
+              <div>IIDX SP・DP 皆传 / Arena 最高 A1 / 发狂 BMS SP・DP 皆传</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-box"><img src="../images/7769/hero.png" alt="IIDX（弐寺）PS2 专控连接 PC・INFINITAS・BMS 游玩教程｜转接器・注意事项・防卡键改造" /></div>
+        <div class="article-content">
+          <details class="mobile-toc"><summary>📑 文章目录（12 节）</summary><ul><li class="toc-h2"><a href="#sec-1">PS2 专控能在 PC 上用吗？</a></li><li class="toc-h2"><a href="#sec-2">需要准备的物品</a></li><li class="toc-h2"><a href="#sec-3">在 INFINITAS 中使用 PS2 专控的设置方法</a></li><li class="toc-h2"><a href="#sec-4">使用 PS2 专控时的注意事项</a></li><li class="toc-h3"><a href="#sec-5">输入容易延迟或判定飘移</a></li><li class="toc-h3"><a href="#sec-6">按键手感与街机差别很大</a></li><li class="toc-h3"><a href="#sec-7">按键容易卡键</a></li><li class="toc-h3"><a href="#sec-8">属于老旧二手品，可能存在故障</a></li><li class="toc-h2"><a href="#sec-9">PS2 专控改造（垫高防卡键・静音改造）</a></li><li class="toc-h2"><a href="#sec-10">如果现在打算新买，推荐入手现役专用控制器</a></li><li class="toc-h2"><a href="#sec-11">关于 PS2 专控的常见问题</a></li><li class="toc-h2"><a href="#sec-12">总结</a></li></ul></details>
+          <p>本文将讲解如何将 PS2 家用机版 IIDX 配套的<strong>专用控制器（PS2 专控）连接到 PC，用于游玩 INFINITAS 和 BMS</strong>。从所需的转接器、INFINITAS 设置、使用时的注意事项，到减少卡键的改造方法都一并整理在内。</p>
+
+<p>笔者在学生时代，也曾长期用 PS2 专控游玩 PS2 家用机版 IIDX 和 BMS。</p>
+
+<div class="capbox capbox-main"><div class="capbox-title">本文结论</div><div class="capbox-body">
+
+<ul>
+<li>只要通过 <strong>PS2→USB 转接器连接到 PC，PS2 专控就能用来玩 INFINITAS 和 BMS</strong></li>
+
+<li>在 INFINITAS 中，需在启动器（Launcher）的<strong>游戏手柄设置</strong>里确认按键与转盘的键位映射</li>
+
+<li>市售转接器常被反馈容易出现输入延迟或判定飘移；按键卡键问题可以通过垫高改造来大幅缓解</li>
+
+<li>PS2 专控的按键采用橡胶触点（导电胶），手感与街机差异很大。如果打算在家认真练习，还是推荐直接购买现役专用控制器</li>
+</ul>
+
+</div></div>
+
+<h2 id="sec-1">PS2 专控能在 PC 上用吗？</h2>
+
+<p>PS2 专控使用的是 PS2 手柄专用接口，无法直接插在 PC 上。但只要使用<strong>将 PS2 手柄转换为 USB 接口的转接器</strong>，PC 就能将其识别为普通游戏手柄。</p>
+
+<figure class="table-fig"><div class="table-wrap"><table><thead><tr><th>游玩平台 / 软件</th><th>PS2 专控支持情况</th></tr></thead><tbody><tr><td>INFINITAS（PC）</td><td>通过转接器可用，需在启动器中配置键位映射</td></tr><tr><td>BMS（beatoraja 等）</td><td>通过转接器可用，需在 BMS 模拟器内配置键位映射</td></tr><tr><td>ULTIMATE MOBILE（手机版）</td><td>官方不支持（手机版官方支持的专控为入门版 Entry Model）</td></tr><tr><td>PS3・PS4・PS5</td><td>这些主机未推出家用机版 IIDX，因此没有用武之地</td></tr></tbody></table></div></figure>
+
+<p>初代 PlayStation 的 5 键 beatmania 专用控制器，同样也可以通过转接器连接到 PC 使用。</p>
+
+<h2 id="sec-2">需要准备的物品</h2>
+
+<ul>
+<li><strong>PS2 专控</strong>（二手）</li>
+
+<li><strong>PS2→USB 转接器</strong>：最常用的是 ELECOM 的游戏手柄转接器（JC-PS101U）。该型号已停产，目前需要在二手市场寻找。</li>
+
+<li>如果要玩 INFINITAS，还需一台能够运行 INFINITAS 的 Windows PC</li>
+</ul>
+
+<p>部分转接器可能会出现转盘或某些按键无法正常响应的情况。买到手后，请先打开 Windows 自带的“设置 USB 游戏控制器”或使用手柄测试工具，确认<strong>全部 7 个按键和转盘都能正常触发</strong>。</p>
+
+<h2 id="sec-3">在 INFINITAS 中使用 PS2 专控的设置方法</h2>
+
+<p>在 INFINITAS 中，打开启动器设置里的“游戏手柄（ゲームパッド）”栏目，检查按键与转盘的映射配置。如果按下按键时对应亮起的轨道不对，直接在这里重新映射即可。</p>
+
+<p>关于 INFINITAS 的入坑教程与收费标准，请参阅以下文章。</p>
+
+<div class="related-card"><a href="./7681.html"><span class="related-label">站内相关译文 · INFINITAS 与硬件</span><span class="related-title">【2026 年版】INFINITAS（弐寺）入坑指南与费用｜月费 1,628 日元能玩什么、所需设备与预算参考</span></a></div>
+
+
+<h2 id="sec-4">使用 PS2 专控时的注意事项</h2>
+
+<h3 id="sec-5">输入容易延迟或判定飘移</h3>
+
+<p>由于市售转接器需要将 PS2 信号转换为 USB 游戏手柄信号，因此普遍认为输入时机容易产生抖动和偏移。如果打起来觉得判定隐约不太对劲，请先通过游戏内的判定时机调整功能进行校准。</p>
+
+<div class="related-card"><a href="./2279.html"><span class="related-label">站内相关译文 · 选项与判定设置</span><span class="related-title">IIDX（弐寺）判定调整的做法｜FAST・SLOW 偏多时该往哪边调？</span></a></div>
+
+
+<h3 id="sec-6">按键手感与街机差别很大</h3>
+
+<p>PS2 专控的键盘不像街机那样采用微动开关，而是靠<strong>橡胶触点（导电胶）</strong>触发。无论是按压回弹手感，还是按下到触发的键程深度，都与街机相差甚远。再加上转盘尺寸偏小、机身偏轻，游玩时整台手台很容易跟着滑动移位。</p>
+
+<h3 id="sec-7">按键容易卡键</h3>
+
+<p>使用 PS2 专控时，只要手指按到按键边缘，键帽就很容易斜着陷下去卡住，也就是俗称的“卡键（ハマり）”。这是沿用相同内部结构的现役入门版（Entry Model）同样存在的老毛病。卡键问题可以通过下文的改造方法大幅减轻。</p>
+
+<h3 id="sec-8">属于老旧二手品，可能存在故障</h3>
+
+<p>PS2 专控已经是二十年前后的老产品了。二手市场上难免存在按键接触不良、转盘转不动等故障品，选购时务必挑选已确认功能正常的商品。</p>
+
+<h2 id="sec-9">PS2 专控改造（垫高防卡键・静音改造）</h2>
+
+<p>笔者当年对 PS2 专控做过的改造主要有两项：静音改造，以及通过垫高来缩短按键键程（下压深度）。按键按得越深就越容易斜卡住，因此把底部垫高就能有效减少卡键。</p>
+
+<p>垫高的做法是在电路板对应位置粘贴橡胶片，将按键底部抬高。对于 PS2 专控来说，需要<strong>叠贴 2 张 1mm 厚的橡胶片，总共垫高 2mm</strong>。</p>
+
+<p>由于 PS2 专控的内部构造与现役入门版专控（Entry Model）几乎完全一致，拆解步骤与所需材料可以直接参考入门版专控的改造教程。不过需要注意，入门版专控的键柱比 PS2 专控长约 1mm，因此入门版只需贴 1 张橡胶片，两者的叠加张数不同，切勿弄混。</p>
+
+<div class="related-card"><a href="./4815.html"><span class="related-label">站内相关译文 · INFINITAS 与硬件</span><span class="related-title">IIDX（弐寺）官方入门手台（Entry Model）评测与卡键对策｜30 分钟 DIY 改造步骤及无反应排查指南</span></a></div>
+
+
+<p>拆解与改造操作请自行承担风险。</p>
+
+<h2 id="sec-10">如果现在打算新买，推荐入手现役专用控制器</h2>
+
+<p>如果你手头刚好本来就有闲置的 PS2 专控，那只需花小钱买个转接器就能体验 INFINITAS 或 BMS，拿来先试玩一下完全够用。</p>
+
+<p>但如果你打算从零购置设备、在家认真练琴，还是更推荐购买 <strong>KONAMI 官方入门版专控（Entry Model，18,800 日元）或 Phoenixwan 等现役专用控制器</strong>。它们不仅可以直接 USB 即插即用，在 INFINITAS 下的兼容性也经过充分验证。</p>
+
+<div class="related-card"><a href="./5952.html"><span class="related-label">站内相关译文 · INFINITAS 与硬件</span><span class="related-title">【2026 年版】IIDX（弐寺）手台推荐｜beatmania 专控与 INFINITAS 对应型号汇总</span></a></div>
+
+
+<h2 id="sec-11">关于 PS2 专控的常见问题</h2>
+
+<div class="faq-list">
+<details open class="faq-item"><summary>PS2 专控可以用来玩 INFINITAS 吗？</summary><div class="faq-a">
+<p>可以，只要用 PS2→USB 转接器连接到 PC 就能使用。连接后请务必在 INFINITAS 启动器设置的游戏手柄栏目中确认键盘与转盘的映射是否正确。</p>
+</div></details>
+
+<details open class="faq-item"><summary>用 PS2 专控玩 INFINITAS 时，按下去亮起的轨道不对怎么办？</summary><div class="faq-a">
+<p>这是因为按键映射错位了。请在启动器设置的游戏手柄栏目中重新分配键盘和转盘按键。如果重新映射后仍有按键无反应，请使用游戏手柄测试工具排查是转接器问题还是专控本身故障。</p>
+</div></details>
+
+<details open class="faq-item"><summary>PS2 专控能在 PS4 或 PS5 上使用吗？</summary><div class="faq-a">
+<p>由于 PS4 和 PS5 并没有发售家用机版 IIDX，因此没有用处。如果想在家游玩，请连接 PC 游玩 INFINITAS 或 BMS。</p>
+</div></details>
+
+<details open class="faq-item"><summary>用 PS2 专控练习也能进步吗？</summary><div class="faq-a">
+<p>用来练习读谱和指法是有效果的。不过因为按键手感、键程和转盘尺寸都与街机差距很大，如果你平时还会去机厅打街机，购买现役专用控制器过渡起来违和感会小得多。</p>
+</div></details>
+
+</div>
+
+<h2 id="sec-12">总结</h2>
+
+<p>只要配合 PS2→USB 转接器连接到 PC，PS2 专控就能正常用于游玩 INFINITAS 和 BMS。游玩 INFINITAS 时，记得在启动器设置的游戏手柄栏目中确认按键与转盘的映射。</p>
+
+<p>不过鉴于输入抖动和手感差异问题，如果打算在家长期认真练习，还是建议考虑入手现役的专用控制器。</p>
+        </div>
+        
+      </article>
+
+      <nav class="article-footer-nav">
+        <a class="nav-card" href="./7766.html"><small>← 同分类上一篇</small><strong>beatmania IIDX ULTIMATE MOBILE 是什么？手游版 IIDX 免费游玩范围、月费套餐与专用控制器介绍</strong></a><a class="nav-card" href="./7760.html"><small>同分类下一篇 →</small><strong>历代家用版 beatmania 汇总：从 PS2・PS・Game Boy 到如今可玩的 INFINITAS</strong></a>
+      </nav>
+    </div>
+
+    <aside class="toc-aside"><div class="toc-heading">文章目录</div><ul class="toc-nav"><li class="toc-h2"><a href="#sec-1">PS2 专控能在 PC 上用吗？</a></li><li class="toc-h2"><a href="#sec-2">需要准备的物品</a></li><li class="toc-h2"><a href="#sec-3">在 INFINITAS 中使用 PS2 专控的设置方法</a></li><li class="toc-h2"><a href="#sec-4">使用 PS2 专控时的注意事项</a></li><li class="toc-h3"><a href="#sec-5">输入容易延迟或判定飘移</a></li><li class="toc-h3"><a href="#sec-6">按键手感与街机差别很大</a></li><li class="toc-h3"><a href="#sec-7">按键容易卡键</a></li><li class="toc-h3"><a href="#sec-8">属于老旧二手品，可能存在故障</a></li><li class="toc-h2"><a href="#sec-9">PS2 专控改造（垫高防卡键・静音改造）</a></li><li class="toc-h2"><a href="#sec-10">如果现在打算新买，推荐入手现役专用控制器</a></li><li class="toc-h2"><a href="#sec-11">关于 PS2 专控的常见问题</a></li><li class="toc-h2"><a href="#sec-12">总结</a></li></ul></aside>
+  </div>
+
+  <div id="lightbox" role="dialog" aria-modal="true">
+    <div class="lb-box">
+      <div class="lb-bar">
+        <span id="lb-count"></span>
+        <div class="lb-btns">
+          <button id="lb-prev" class="lb-btn" type="button">← 上一张</button>
+          <button id="lb-next" class="lb-btn" type="button">下一张 →</button>
+          <button id="lb-close" class="lb-btn" type="button">关闭 (ESC)</button>
+        </div>
+      </div>
+      <img id="lb-img" alt="" />
+      <p id="lb-cap"></p>
+    </div>
+  </div>
+
+  <script src="../assets/site.js"></script>
+</body>
+</html>

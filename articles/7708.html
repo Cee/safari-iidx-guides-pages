@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INFINITAS 音画不同步与音频延迟修复指南：WASAPI 独占模式、ASIO 及音频设备创建失败应对方法｜IIDX 中文攻略库</title>
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <span class="pill">IIDX 中文库</span>
+        <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">INFINITAS 音画不同步与音频延迟修复指南：WASAPI 独占模式、ASIO 及音频设备创建失败应对方法</span>
+      </a>
+      <div class="topbar-actions">
+        <a class="btn-ghost" href="../index.html">← 全部文章</a>
+        <button id="theme-toggle" class="btn-ghost" type="button">明暗切换</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="article-shell">
+    <div>
+      <article class="article-card">
+        <div class="article-header">
+          <div class="meta-row">
+            <span class="cat-badge">INFINITAS 与硬件</span>
+            <span>发布：2026.11.14</span>
+            <span>·</span>
+            <a href="https://the-safari.com/7708" target="_blank" rel="noopener noreferrer">原文 #7708 ↗</a>
+          </div>
+          <h1>INFINITAS 音画不同步与音频延迟修复指南：WASAPI 独占模式、ASIO 及音频设备创建失败应对方法</h1>
+          <p class="orig-title">原文标题：INFINITASの音ズレ・遅延の直し方。WASAPI排他モード・ASIO・オーディオデバイス作成失敗の対処</p>
+          <div class="author-row">
+            <div class="avatar">か</div>
+            <div>
+              <div style="font-weight:700;color:var(--fg);">原作者：かみゆー（サファリドットコム）</div>
+              <div>IIDX SP・DP 皆传 / Arena 最高 A1 / 发狂 BMS SP・DP 皆传</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-box"><img src="../images/7708/hero.png" alt="INFINITAS 音画不同步与音频延迟修复指南：WASAPI 独占模式、ASIO 及音频设备创建失败应对方法" /></div>
+        <div class="article-content">
+          <details class="mobile-toc"><summary>📑 文章目录（10 节）</summary><ul><li class="toc-h2"><a href="#sec-1">INFINITAS 发生音画不同步的主要原因</a></li><li class="toc-h2"><a href="#sec-2">切换为 WASAPI 独占模式</a></li><li class="toc-h2"><a href="#sec-3">声音必须由电脑通过有线方式输出</a></li><li class="toc-h2"><a href="#sec-4">使用外置音频接口（声卡）</a></li><li class="toc-h3"><a href="#sec-5">INFINITAS 支持 ASIO 吗？</a></li><li class="toc-h2"><a href="#sec-6">“オーディオデバイスの作成に失敗しました（音频设备创建失败）”的解决方法</a></li><li class="toc-h2"><a href="#sec-7">如何在共享模式下尽量减轻音画不同步</a></li><li class="toc-h2"><a href="#sec-8">遇到画面卡顿或视觉延迟时</a></li><li class="toc-h2"><a href="#sec-9">INFINITAS 音画不同步常见问题</a></li><li class="toc-h2"><a href="#sec-10">总结</a></li></ul></details>
+          <p>本文将详细讲解 beatmania IIDX INFINITAS <strong>音画不同步与音频延迟的修复方法</strong>，一并梳理 WASAPI 独占模式与共享模式的区别、音频接口（声卡）的用法，以及出现“音频设备创建失败（オーディオデバイスの作成に失敗しました）”报错时的排查步骤。</p>
+
+<p>笔者平时使用 WASAPI 独占模式搭配外置声卡（Behringer UMC202HD）游玩 INFINITAS，完全没有音画不同步或判定违和感。</p>
+
+<div class="capbox capbox-main"><div class="capbox-title">本文结论</div><div class="capbox-body">
+
+<ul>
+<li>在启动器设置中，将音频播放设为 <strong>WASAPI（独占模式 / 排他モード）</strong>，这样发声延迟最低</li>
+
+<li><strong>不要用电视或显示器自带扬声器发声，请从电脑直连有线耳机或音箱出声</strong>。蓝牙设备一定会延迟</li>
+
+<li>如果使用外置音频接口（声卡），请<strong>调小缓冲区大小（Buffer Size）</strong>，数值越大声音越延迟</li>
+
+<li>若提示“オーディオデバイスの作成に失敗しました（音频设备创建失败）”，按顺序尝试：关闭其他占用音频的软件 → 更改采样率 → 改回共享模式</li>
+</ul>
+
+</div></div>
+
+<h2 id="sec-1">INFINITAS 发生音画不同步的主要原因</h2>
+
+<p>INFINITAS 的音画不同步问题，绝大多数都源于下面几种情况之一：</p>
+
+<figure class="table-fig"><div class="table-wrap"><table><thead><tr><th>原因</th><th>症状表现</th><th>修复方法</th></tr></thead><tbody><tr><td>WASAPI 处于共享模式</td><td>按键音（Key 音）听起来略微滞后</td><td>切换为独占模式</td></tr><tr><td>通过电视或显示器输出声音</td><td>声音出现明显大幅延迟</td><td>改由电脑直连有线音频设备输出</td></tr><tr><td>使用蓝牙耳机或蓝牙音箱</td><td>声音出现明显大幅延迟</td><td>改用有线耳机或音箱</td></tr><tr><td>声卡（音频接口）缓冲区过大</td><td>声音发闷滞后、有明显延迟</td><td>调小缓冲区大小（Buffer Size）</td></tr><tr><td>采样率设置不匹配</td><td>越打越偏、声音撕裂破音，或无法启动</td><td>尝试改为 44100Hz 或 48000Hz</td></tr></tbody></table></div></figure>
+
+<p>此外，如果<strong>声音节奏对得上，只是判定对不上</strong>，那就不属于音频问题，而是判定时机调整的问题。判定的调法详见下面这篇文章：</p>
+
+<div class="related-card"><a href="./2279.html"><span class="related-label">站内相关译文 · 选项与判定设置</span><span class="related-title">IIDX（弐寺）判定调整的做法｜FAST・SLOW 偏多时该往哪边调？</span></a></div>
+
+
+<h2 id="sec-2">切换为 WASAPI 独占模式</h2>
+
+<p>最立竿见影的一招，就是<strong>将音频播放模式设为 WASAPI（独占模式 / 排他モード）</strong>。可以直接在 INFINITAS 启动器的“SETTING”界面修改。</p>
+
+<figure class="article-fig"><img src="../images/7708/img_02.png" alt="INFINITAS 设置界面。在音频播放选项中选择了 WASAPI（独占模式）" loading="lazy" /></figure>
+
+<p>独占模式会让 INFINITAS 绕过 Windows 系统内部的音频混音处理（混音器），直接向音频硬件输出声音。与共享模式相比，<strong>声音延迟会大幅降低</strong>。</p>
+
+<p>不过，使用独占模式需要注意以下几点：</p>
+
+<ul>
+<li>Windows 系统音量调节可能会失效，导致<strong>突然爆出极大音量</strong>。初次开启时请先摘下耳机确认音量</li>
+
+<li>游玩 INFINITAS 期间，电脑上其他软件都将无法发出声音</li>
+
+<li>使用 OBS 等直播软件时，可能无法直接采集到 INFINITAS 的游戏声音</li>
+
+<li>部分音频硬件不支持独占模式，强行开启会导致游戏无法启动</li>
+</ul>
+
+<p>只有在独占模式无法正常运行，或者需要优先保证直播收音时，才建议使用共享模式。</p>
+
+<h2 id="sec-3">声音必须由电脑通过有线方式输出</h2>
+
+<p>如果通过电视或显示器的内置扬声器出声，信号会经过显示设备内部的音频处理环节，从而造成<strong>严重的发声延迟</strong>。哪怕你是接大电视玩 INFINITAS，声音也一定要直接从电脑接有线耳机或音箱输出。</p>
+
+<p>另外，<strong>蓝牙耳机和蓝牙音箱的无线延迟非常大</strong>，根本不适合玩音游，请务必使用有线设备。</p>
+
+<div class="related-card"><a target="_blank" rel="noopener noreferrer" href="https://the-safari.com/6720" target="_blank" rel="noopener noreferrer"><span class="related-label">相关文章</span><span class="related-title">【2026年版】音游专用耳机推荐 7 选与选购指南</span></a></div>
+
+
+<h2 id="sec-4">使用外置音频接口（声卡）</h2>
+
+<p>如果觉得电脑自带耳机孔音量太小，或者底噪明显，配一台<strong>外置音频接口（声卡）</strong>能大幅改善听感。笔者自己用的是 Behringer UMC202HD。</p>
+
+<p>部分声卡允许在配套驱动的控制面板中调整<strong>缓冲区大小（Buffer Size / 延迟 Latency）</strong>。缓冲区设得越大，音频延迟也越大，因此建议尽量往小调；如果调得太小导致声音出现“噗噗”断续或爆音，再一点点往回调大即可。</p>
+
+<h3 id="sec-5">INFINITAS 支持 ASIO 吗？</h3>
+
+<p>INFINITAS 启动器中仅提供 WASAPI 独占模式和共享模式两个选项，并不支持 ASIO。即便使用了外置声卡，<strong>INFINITAS 这边也同样选择 WASAPI（独占模式）</strong>即可。</p>
+
+<h2 id="sec-6">“オーディオデバイスの作成に失敗しました（音频设备创建失败）”的解决方法</h2>
+
+<p>启动 INFINITAS 时，有时会弹出提示创建音频设备（声音设备）失败的错误而无法进入游戏。这种情况大多发生在独占模式下，请按以下顺序逐一排查：</p>
+
+<ol class="step-list">
+<li class="step-item"><div class="step-title">关闭所有正在占用音频的其他软件</div><div class="step-body">
+<p>如果浏览器里的视频网页、语音聊天软件或直播软件正在占用音频设备，INFINITAS 就无法以独占模式接管设备。请将这些程序全部彻底关闭后再重新启动游戏。</p>
+</div></li>
+
+<li class="step-item"><div class="step-title">确认默认输出设备是否设置正确</div><div class="step-body">
+<p>打开 Windows 声音设置，确认插着耳机或音箱的设备已被设为“默认设备”。同时也检查一下外置声卡的电源是否打开、USB 数据线有没有松脱。</p>
+</div></li>
+
+<li class="step-item"><div class="step-title">更改音频设备的采样率</div><div class="step-body">
+<p>在 Windows 声音设置中打开输出设备的“属性”，进入“高级”选项卡，将默认格式的采样率尝试更改为 <strong>24 位、44100Hz</strong> 或 48000Hz。</p>
+</div></li>
+
+<li class="step-item"><div class="step-title">如果依然报错，则改回共享模式</div><div class="step-body">
+<p>走到这一步仍不行的话，很可能是该音频硬件本身不支持独占模式。在启动器里改选 WASAPI（共享模式）就能正常启动。</p>
+</div></li>
+
+</ol>
+
+<h2 id="sec-7">如何在共享模式下尽量减轻音画不同步</h2>
+
+<p>如果因为直播等原因必须使用共享模式，检查并调整以下 Windows 声音设置多少能减轻一些延迟与偏移：</p>
+
+<ul>
+<li>将输出设备的采样率设为 <strong>44100Hz</strong>（对于“曲子越往后打音画越偏”的现象有时非常管用）</li>
+
+<li>关闭“音频增强”以及一切空间音效（立体声效）功能</li>
+</ul>
+
+<h2 id="sec-8">遇到画面卡顿或视觉延迟时</h2>
+
+<p>如果问题不在声音，而是<strong>谱面掉帧卡顿或画面显示慢半拍</strong>，往往需要从电脑和显示器设置下手：</p>
+
+<ul>
+<li>将显示器刷新率设为 <strong>120Hz</strong></li>
+
+<li>将 INFINITAS 显示在 <strong>主显示器</strong> 上</li>
+
+<li>将 Windows 电源计划调整为高性能优先</li>
+
+<li>如果连接电视游玩，务必开启电视的“游戏模式”</li>
+
+<li>使用 NVIDIA 显卡的话，检查控制面板中的垂直同步与低延迟模式设置</li>
+</ul>
+
+<p>关于电脑系统及 NVIDIA 设置详情，以及显示器的选购与调校，请参阅下面两篇文章：</p>
+
+<div class="related-card"><a href="./5891.html"><span class="related-label">站内相关译文 · INFINITAS 与硬件</span><span class="related-title">【2026年10月更新】INFINITAS（IIDX / 弐寺）电脑选购指南与推荐｜配置要求与卡顿修复设置详解</span></a></div>
+
+
+<div class="related-card"><a href="./4496.html"><span class="related-label">站内相关译文 · INFINITAS 与硬件</span><span class="related-title">【2026年版】INFINITAS 推荐显示器与电视｜120Hz・43 英寸选购指南与设置方法</span></a></div>
+
+
+<h2 id="sec-9">INFINITAS 音画不同步常见问题</h2>
+
+<div class="faq-list">
+<details open class="faq-item"><summary>INFINITAS 的音画不同步该怎么解决？</summary><div class="faq-a">
+<p>首先在启动器设置中将音频播放改为 WASAPI（独占模式），并让声音直接从电脑通过有线耳机或音箱输出。如果接了外置声卡，记得把缓冲区大小调小。</p>
+</div></details>
+
+<details open class="faq-item"><summary>独占模式和共享模式选哪个更好？</summary><div class="faq-a">
+<p>强烈推荐延迟更低的独占模式。只有在独占模式下游戏无法启动，或者直播需要直接采集 INFINITAS 声音时，才改用共享模式。</p>
+</div></details>
+
+<details open class="faq-item"><summary>弹出“オーディオデバイスの作成に失敗しました（音频设备创建失败）”无法启动怎么办？</summary><div class="faq-a">
+<p>先关闭其他占用声音的软件，再去 Windows 声音设置里把采样率改为 24 位 / 44100Hz 或 48000Hz 试试。如果还是打不开，就在启动器里切换为 WASAPI（共享模式）。</p>
+</div></details>
+
+<details open class="faq-item"><summary>可以用蓝牙耳机玩 INFINITAS 吗？</summary><div class="faq-a">
+<p>完全不推荐。蓝牙传输延迟非常大，会导致按键音明显滞后错拍，请务必改用有线耳机或有线音箱。</p>
+</div></details>
+
+</div>
+
+<h2 id="sec-10">总结</h2>
+
+<p>INFINITAS 的音画不同步问题，绝大多数只要在启动器开启 WASAPI（独占模式），并从电脑直连有线耳机或音箱发声就能迎刃而解。若使用外置声卡，记得调小缓冲区；遇到报错打不开时，按照关闭其他音频软件 → 更改采样率 → 切换共享模式的顺序排查即可。</p>
+
+<p>如果声音本身已经同步，仅仅是判定觉得偏早或偏晚，那就直接进游戏做判定时机调整吧。</p>
+        </div>
+        
+      </article>
+
+      <nav class="article-footer-nav">
+        <a class="nav-card" href="./4815.html"><small>← 同分类上一篇</small><strong>IIDX（弐寺）官方入门手台（Entry Model）评测与卡键对策｜30 分钟 DIY 改造步骤及无反应排查指南</strong></a><a class="nav-card" href="./7698.html"><small>同分类下一篇 →</small><strong>IIDX（弐寺）街机手台（Arcade Style Controller）是什么？与普通专控的区别及选购指南</strong></a>
+      </nav>
+    </div>
+
+    <aside class="toc-aside"><div class="toc-heading">文章目录</div><ul class="toc-nav"><li class="toc-h2"><a href="#sec-1">INFINITAS 发生音画不同步的主要原因</a></li><li class="toc-h2"><a href="#sec-2">切换为 WASAPI 独占模式</a></li><li class="toc-h2"><a href="#sec-3">声音必须由电脑通过有线方式输出</a></li><li class="toc-h2"><a href="#sec-4">使用外置音频接口（声卡）</a></li><li class="toc-h3"><a href="#sec-5">INFINITAS 支持 ASIO 吗？</a></li><li class="toc-h2"><a href="#sec-6">“オーディオデバイスの作成に失敗しました（音频设备创建失败）”的解决方法</a></li><li class="toc-h2"><a href="#sec-7">如何在共享模式下尽量减轻音画不同步</a></li><li class="toc-h2"><a href="#sec-8">遇到画面卡顿或视觉延迟时</a></li><li class="toc-h2"><a href="#sec-9">INFINITAS 音画不同步常见问题</a></li><li class="toc-h2"><a href="#sec-10">总结</a></li></ul></aside>
+  </div>
+
+  <div id="lightbox" role="dialog" aria-modal="true">
+    <div class="lb-box">
+      <div class="lb-bar">
+        <span id="lb-count"></span>
+        <div class="lb-btns">
+          <button id="lb-prev" class="lb-btn" type="button">← 上一张</button>
+          <button id="lb-next" class="lb-btn" type="button">下一张 →</button>
+          <button id="lb-close" class="lb-btn" type="button">关闭 (ESC)</button>
+        </div>
+      </div>
+      <img id="lb-img" alt="" />
+      <p id="lb-cap"></p>
+    </div>
+  </div>
+
+  <script src="../assets/site.js"></script>
+</body>
+</html>

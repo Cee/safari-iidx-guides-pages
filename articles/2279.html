@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IIDX（弐寺）判定调整的做法｜FAST・SLOW 偏多时该往哪边调？｜IIDX 中文攻略库</title>
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <span class="pill">IIDX 中文库</span>
+        <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">IIDX（弐寺）判定调整的做法｜FAST・SLOW 偏多时该往哪边调？</span>
+      </a>
+      <div class="topbar-actions">
+        <a class="btn-ghost" href="../index.html">← 全部文章</a>
+        <button id="theme-toggle" class="btn-ghost" type="button">明暗切换</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="article-shell">
+    <div>
+      <article class="article-card">
+        <div class="article-header">
+          <div class="meta-row">
+            <span class="cat-badge">选项与判定设置</span>
+            <span>发布：2016.09.18 · 更新：2026.10.27</span>
+            <span>·</span>
+            <a href="https://the-safari.com/2279" target="_blank" rel="noopener noreferrer">原文 #2279 ↗</a>
+          </div>
+          <h1>IIDX（弐寺）判定调整的做法｜FAST・SLOW 偏多时该往哪边调？</h1>
+          <p class="orig-title">原文标题：弐寺（IIDX）の判定調整のやり方｜FAST・SLOWが多いときはどっち？</p>
+          <div class="author-row">
+            <div class="avatar">か</div>
+            <div>
+              <div style="font-weight:700;color:var(--fg);">原作者：かみゆー（サファリドットコム）</div>
+              <div>IIDX SP・DP 皆传 / Arena 最高 A1 / 发狂 BMS SP・DP 皆传</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-box"><img src="../images/2279/hero.png" alt="IIDX（弐寺）判定调整的做法｜FAST・SLOW 偏多时该往哪边调？" /></div>
+        <div class="article-content">
+          <details class="mobile-toc"><summary>📑 文章目录（15 节）</summary><ul><li class="toc-h2"><a href="#sec-1">什么是判定时机调整</a></li><li class="toc-h3"><a href="#sec-2">与绿数字的区别</a></li><li class="toc-h2"><a href="#sec-3">FAST・SLOW 偏多时该往哪边调？</a></li><li class="toc-h3"><a href="#sec-4">应该调多少？</a></li><li class="toc-h2"><a href="#sec-5">判定调整的做法</a></li><li class="toc-h2"><a href="#sec-6">调判定时的 5 个心得</a></li><li class="toc-h3"><a href="#sec-7">比起耳朵（节奏感），用眼睛对齐</a></li><li class="toc-h3"><a href="#sec-8">用有一定音符数的简单曲子来调</a></li><li class="toc-h3"><a href="#sec-9">FAST・SLOW 的比例仅供参考</a></li><li class="toc-h3"><a href="#sec-10">找到位置后，专心让身体去适应</a></li><li class="toc-h3"><a href="#sec-11">不要根据当天状态或曲目乱改</a></li><li class="toc-h2"><a href="#sec-12">调了判定依然偏时的原因</a></li><li class="toc-h2"><a href="#sec-13">判定时机自动调整可以用吗？</a></li><li class="toc-h2"><a href="#sec-14">判定调整常见问题</a></li><li class="toc-h2"><a href="#sec-15">总结</a></li><li class="toc-h2"><a href="#comments">💬 评论区答疑</a></li></ul></details>
+          <p>本文将讲解 IIDX（beatmania IIDX）的<strong>判定时机调整做法</strong>，以及 FAST 或 SLOW 偏多时应该往哪个方向、调整多少。</p>
+
+<p>文章后半部分也会介绍笔者平时调判定时常会留意的几个心得。</p>
+
+<div class="capbox capbox-main"><div class="capbox-title">本文结论</div><div class="capbox-body">
+
+<ul>
+<li><strong>FAST 偏多往正数（+）调，SLOW 偏多往负数（-）调</strong></li>
+
+<li>调整幅度：明显偏向一方时调大一点，之后每次微调 <strong>0.1〜0.2</strong></li>
+
+<li>用不用刻意打也能 Full Combo 的简单曲子来调；比起节奏感（耳朵），更要靠<strong>视觉判定线对齐（眼睛）</strong></li>
+
+<li>找到“就是这里”的位置后，不要根据当天状态或曲目乱改，剩下的交给身体去适应判定</li>
+</ul>
+
+</div></div>
+
+<h2 id="sec-1">什么是判定时机调整</h2>
+
+<p>判定时机调整是用来<strong>修正“音符视觉上与判定线重合的时刻”和“实际判定时刻”之间偏差</strong>的设置，主要用于抵消屏幕显示延迟以及不同机台之间的个体差异。</p>
+
+<p>数值可以以 0.05 为步进调整（自 27 代 HEROIC VERSE 起，由原本的 0.1 步进变得更精细）。</p>
+
+<p>往正数（+）调会让判定变浅（偏判定线上方），往负数（-）调会让判定变深（偏判定线下方）。</p>
+
+<h3 id="sec-2">与绿数字的区别</h3>
+
+<p>经常一起被提及的绿数字控制的是音符出现到抵达判定线的时间，也就是<strong>视觉流速</strong>的设置；而判定时机调整控制的是<strong>在哪个瞬间按下才能发光（P-GREAT）</strong>，二者职责不同。</p>
+
+<p>不过，把判定调深后，看到音符到按下之间的反应余量会稍微增加一点。因此也有不少玩家会在压低绿数字的同时，把判定调得偏深一些。绿数字与判定位置的搭配在下面这篇文章中有更详细的讲解。</p>
+
+<div class="related-card"><a href="./6224.html"><span class="related-label">站内相关译文 · 选项与判定设置</span><span class="related-title">IIDX（弐寺）绿数字参考标准是多少？各段位平均值与白数字（SUD+・LIFT）设置指南</span></a></div>
+
+<h2 id="sec-3">FAST・SLOW 偏多时该往哪边调？</h2>
+
+<p>FAST 表示按早了，SLOW 表示按晚了。当明显偏向其中一方时，按如下方向调整：</p>
+
+<figure class="table-fig"><div class="table-wrap"><table><thead><tr><th>结算情况</th><th>调整方向</th><th>判定位置变化</th></tr></thead><tbody><tr><td>FAST 偏多</td><td>正数（+）</td><td>变浅（偏判定线上方）</td></tr><tr><td>SLOW 偏多</td><td>负数（-）</td><td>变深（偏判定线下方）</td></tr></tbody></table></div></figure>
+
+<figure class="article-fig"><img src="../images/2279/img_02.png" alt="FAST 偏多往正数调高判定线至按键瞬间音符的位置，SLOW 偏多往负数调低的示意图" loading="lazy" /><figcaption>原图说明：左图 FAST 多 → 调正数（判定线上移/变浅）；右图 SLOW 多 → 调负数（判定线下移/变深）。红线为新判定线，虚线为原判定线。</figcaption></figure>
+
+<p>FAST 偏多说明你在音符抵达判定线之前就按下了，把判定调浅就能让你当前的按键时机发光；SLOW 则相反。官方说明中也指出，若显示器存在画面延迟（因显示偏慢而容易出 SLOW），应往负数方向调整。</p>
+
+<h3 id="sec-4">应该调多少？</h3>
+
+<p>当 FAST 与 SLOW 数量明显一边倒时，先大幅调一下再打一局。之后每当你感觉“刚才绝对是正点按的，却出了 FAST（或 SLOW）”时，再每次按 <strong>0.1〜0.2</strong> 微调。</p>
+
+<p>另外，部分顶尖玩家会把判定调深到 -2〜-3 左右。这并非为了修正偏差，而是为了增加按键反应余量而刻意调深的设定。</p>
+
+<h2 id="sec-5">判定调整的做法</h2>
+
+<ol class="step-list">
+<li class="step-item"><div class="step-title">选一首简单的曲子</div><div class="step-body">
+<p>选择不用刻意打也能 Full Combo 的难度、且音符数不算太少的曲子。原因见下文心得。</p>
+</div></li>
+
+<li class="step-item"><div class="step-title">看着视觉判定线按下</div><div class="step-body">
+<p>用眼睛追音符，在音符与判定线重合的瞬间按下。重点是按视觉画面对齐，而不是跟着音乐听音踩点。</p>
+</div></li>
+
+<li class="step-item"><div class="step-title">看结算的 FAST・SLOW 进行调整</div><div class="step-body">
+<p>FAST 多就加（+），SLOW 多就减（-）。明显偏向就多调一点，轻微偏向就每次调 0.1〜0.2。</p>
+</div></li>
+
+<li class="step-item"><div class="step-title">定下来之后就固定</div><div class="step-body">
+<p>找到“就是这里”的位置之后，就不要再改动了。下次玩同一台机台时，直接从这个数值开始。</p>
+</div></li>
+
+</ol>
+
+<p>从 CastHour（29 代）开始，游玩中途也可以直接调整判定了：按小键盘的 <strong>9 调高判定位置（+），按 3 调低（-）</strong>。不用退出重选曲目就能实时测试，找偏差省事得多。</p>
+
+<h2 id="sec-6">调判定时的 5 个心得</h2>
+
+<h3 id="sec-7">比起耳朵（节奏感），用眼睛对齐</h3>
+
+<p>坦白说，节奏感其实没那么靠谱。请专注于让<strong>视觉上的判定线与实际判定时机保持一致</strong>。</p>
+
+<h3 id="sec-8">用有一定音符数的简单曲子来调</h3>
+
+<p>偶尔会看到有人用明显偏难的曲子调判定。推荐选<strong>不用刻意打也能 Full Combo</strong> 的曲子，这样注意力不会被“接住音符”牵走，可以专心打发光。</p>
+
+<p>一旦精力被“怕漏键”牵走，视线就会一点点上移，导致 FAST 增多；你看到 FAST 多了又去调判定，判定越调越浅，回头打单发/低密度曲子时又全是 SLOW……就此陷入恶性循环。</p>
+
+<p>之所以要选有一定音符数的曲子，是因为视线不会压得过低，FAST・SLOW 的比例也更容易趋于稳定；音符数太少的话比例容易大幅波动。</p>
+
+<h3 id="sec-9">FAST・SLOW 的比例仅供参考</h3>
+
+<p>如上所述，只要注意力稍微被“接音符”牵走，通常就会偏向 FAST。只看 FAST・SLOW 的比例乱调反而会越调越偏。</p>
+
+<p>只在明显一边倒时大幅调整，其余时候相信自己“明明正点按的却偏了”的感觉，一点点微调即可。</p>
+
+<h3 id="sec-10">找到位置后，专心让身体去适应</h3>
+
+<p>过于执着调判定很容易掉进死胡同。反复找判定的期间，你也无法专心做提升地力的练习。</p>
+
+<p><strong>找到“就是这里”的位置后，停止折腾判定、转而让自己的身体主动去契合判定</strong>，才更有利于进步。</p>
+
+<h3 id="sec-11">不要根据当天状态或曲目乱改</h3>
+
+<p>判定调整原本是为了适配机台的功能，但有些人会根据当天手感或每首歌的 FAST・SLOW 每次都改。老实说，我非常不推荐这么做。</p>
+
+<p>在同一台机台上频繁改判定，会很难培养出<strong>抓准判定核心的能力</strong>。找到这台机台的最佳位置后，尽量固定不变，改用微调绿数字或视线高度来让身体适应判定吧。</p>
+
+<h2 id="sec-12">调了判定依然偏时的原因</h2>
+
+<p>动了判定后 FAST 或 SLOW 的偏向依然没有改善时，原因往往在判定之外。</p>
+
+<figure class="table-fig"><div class="table-wrap"><table><thead><tr><th>遇到这种情况</th><th>可能原因</th><th>建议尝试</th></tr></thead><tbody><tr><td>只有难曲 FAST 变多</td><td>注意力被“接音符”牵走，视线抬高了</td><td>不要动判定，以简单曲定下的值为基准</td></tr><tr><td>明明看清了却总是 SLOW</td><td>流速太快，手指跟不上</td><td>调大绿数字，或把判定稍微调深一点</td></tr><tr><td>不同曲子 FAST 和 SLOW 来回变</td><td>按曲子乱调判定，没有固定基准</td><td>调回用简单曲定下的值并固定</td></tr><tr><td>只有在家玩偏差很大</td><td>显示器或电视画面有延迟</td><td>开启游戏模式等低延迟设置</td></tr></tbody></table></div></figure>
+
+<p>疲劳或犯困时按键时机也很容易乱。这种日子若乱改判定会把基准改歪，请保持原样不要动。</p>
+
+<p>如果是声音本身存在延迟，请先尝试下面文章里的修复方法。</p>
+
+<div class="related-card"><a href="./7708.html"><span class="related-label">站内相关译文 · INFINITAS 与硬件</span><span class="related-title">INFINITAS 音画不同步与音频延迟修复指南：WASAPI 独占模式、ASIO 及音频设备创建失败应对方法</span></a></div>
+
+<h2 id="sec-13">判定时机自动调整可以用吗？</h2>
+
+<p>从 CastHour（29 代）开始，也可以使用能在游玩中自动校准判定的“判定时机自动调整”功能。可在详细选项中设置，游玩中按小键盘 0 即可开关。</p>
+
+<p>不用花好几币就能校准很方便，但如果一直开着，判定会跟着每次发挥实时变化；打完不擅长的高难曲或变速剧烈的曲子后，数值甚至会变成很奇怪的值。</p>
+
+<p>正如心得 5 所述，判定频繁变动会阻碍你练出抓判定核心的能力。如果要用，建议<strong>只在开头几首简单曲时打开来定个值，之后就关闭</strong>。</p>
+
+<h2 id="sec-14">判定调整常见问题</h2>
+
+<div class="faq-list">
+<details open class="faq-item"><summary>FAST 偏多时判定应该调正数还是负数？</summary><div class="faq-a">
+<p>往正数（+）调。调正会让判定变浅，让你当前的按键时机更容易发光；SLOW 偏多时则往负数（-）调。不过如果只是难曲 FAST 多，可能不是判定问题，而是视线抬高了。</p>
+</div></details>
+
+<details open class="faq-item"><summary>判定调整应该调多少？</summary><div class="faq-a">
+<p>明显偏向时先调大一点，之后每次按 0.1〜0.2 微调。</p>
+</div></details>
+
+<details open class="faq-item"><summary>应该按曲子或者每次打都改判定吗？</summary><div class="faq-a">
+<p>不推荐。判定来回变会让你练不出抓判定核心的能力。同一台机台，用简单曲定好值后固定下来，让身体去适应它。</p>
+</div></details>
+
+<details open class="faq-item"><summary>判定时机自动调整可以一直开着吗？</summary><div class="faq-a">
+<p>不推荐。一直开着会导致判定随发挥漂移，打完难曲或变速曲后可能跑偏。用简单曲定好值后关掉并固定会更稳定。</p>
+</div></details>
+
+</div>
+
+<h2 id="sec-15">总结</h2>
+
+<p>判定时机调整的原则是：FAST 多加（+），SLOW 多减（-）。选不用刻意打也能 FC 的简单曲盯着判定线目押，明显偏就大调，随后每次按 0.1〜0.2 微调。</p>
+
+<p>最重要的是定好之后就不要再改。比起反复找判定，把时间花在让身体去契合判定上更有意义。</p>
+<div class="widget-box">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+    <div>
+      <strong>🎛️ 互动演示：FAST / SLOW 判定位置速查器</strong>
+      <div style="font-size:12px;color:var(--muted);">点击症状或拖动滑块（支持键盘数字键 9 调高、3 调低）</div>
+    </div>
+    <div id="offset-readout" style="font-family:monospace;font-size:16px;font-weight:700;padding:4px 12px;border-radius:8px;background:var(--card);border:1px solid var(--border);">0.00</div>
+  </div>
+  <div class="sim-grid">
+    <div class="lane">
+      <div class="lane-top">▲ 浅（+ / 偏上）</div>
+      <div class="lane-base"><span>原判定线</span></div>
+      <div id="sim-line"><div class="bar"></div><div class="note"></div></div>
+      <div class="lane-bot">▼ 深（- / 偏下）</div>
+    </div>
+    <div>
+      <div class="btn-row">
+        <button type="button" class="wbtn wbtn-primary" data-preset="fast">FAST 偏多演示 (+0.80)</button>
+        <button type="button" class="wbtn" data-preset="zero">归零 (0.00)</button>
+        <button type="button" class="wbtn wbtn-err" data-preset="slow">SLOW 偏多演示 (-0.80)</button>
+      </div>
+      <input id="offset-slider" type="range" min="-3.0" max="3.0" step="0.05" value="0" />
+      <div class="btn-row">
+        <button type="button" class="wbtn" data-delta="-0.2">-0.2</button>
+        <button type="button" class="wbtn" data-delta="-0.1">-0.1</button>
+        <button type="button" class="wbtn" data-delta="-0.05">-0.05</button>
+        <button type="button" class="wbtn" data-delta="0.05">+0.05</button>
+        <button type="button" class="wbtn" data-delta="0.1">+0.1</button>
+        <button type="button" class="wbtn" data-delta="0.2">+0.2</button>
+      </div>
+      <p id="sim-desc" style="font-size:13px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin:0;"></p>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const s=document.getElementById('offset-slider'),r=document.getElementById('offset-readout'),l=document.getElementById('sim-line'),d=document.getElementById('sim-desc');
+  if(!s)return;
+  function set(val){
+    const c=Math.max(-3,Math.min(3,Math.round(val*20)/20));
+    s.value=c.toFixed(2);
+    r.textContent=(c>0?'+':'')+c.toFixed(2);
+    l.style.top=(50-(c/3)*32).toFixed(1)+'%';
+    if(c>0.01) d.textContent=`当前 +${c.toFixed(2)}（偏浅 / 判定线上移）：适用于 FAST 偏多的情况，让你提前按下的时机落到发光中心。`;
+    else if(c<-0.01) d.textContent=`当前 ${c.toFixed(2)}（偏深 / 判定线下移）：适用于 SLOW 偏多或显示器有延迟的情况，也能稍微增加反应余量。`;
+    else d.textContent='当前 0.00（标准位置）：实际判定中心与视觉上的原始判定线完全重合。';
+  }
+  s.addEventListener('input',()=>set(parseFloat(s.value)));
+  document.querySelectorAll('[data-delta]').forEach(b=>b.addEventListener('click',()=>set(parseFloat(s.value)+parseFloat(b.dataset.delta))));
+  document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>set(b.dataset.preset==='fast'?0.8:b.dataset.preset==='slow'?-0.8:0)));
+  document.addEventListener('keydown',e=>{if(e.key==='9')set(parseFloat(s.value)+0.05);if(e.key==='3')set(parseFloat(s.value)-0.05);});
+  set(0);
+})();
+</script>
+
+        </div>
+        <section class="comments-block" id="comments"><h2>💬 读者评论与作者答疑（2 组对话）</h2><div class="comment-item"><div class="comment-head"><span class="comment-author">匿名</span><span>2018.06.12</span></div><div class="comment-body">&gt; 只要注意力稍微被“去接音符”牵走，通常就会偏向 FAST。
+我正处于完全一样的困扰中，这种情况到底该怎么办才好呢……？难道应该先不管分数，一路猛刷地力，直到不用刻意去接也能按出来的程度吗？可那样又对刷分成了负面练习，既要接住音符又要兼顾准度实在太难了，很苦恼。</div><div class="comment-replies"><div class="comment-item"><div class="comment-head"><span class="comment-author is-owner">かみゆー（作者）</span><span>2018.06.13</span></div><div class="comment-body">这也是我自己一直在烦恼的地方，不过如果是开 RANDOM 的话，我觉得稍微勉强自己专注去接音符也没太大关系。如果想稳扎稳打地练，选择“即便专注打准度，Miss 数也不会怎么增加（甚至能减少）”的难度是最理想的。</div></div></div></div><div class="comment-item"><div class="comment-head"><span class="comment-author">ER</span><span>2017.05.21</span></div><div class="comment-body">我几个月前刚考过九段，目前正在刷地力，一直把判定调在 +2.5 左右在打，这个偏差是不是实在太大了？我已经用这个设置打了好几年，有点担心还能不能矫正过来。就这样继续打下去也没关系吗？</div><div class="comment-replies"><div class="comment-item"><div class="comment-head"><span class="comment-author">ER</span><span>2017.05.21</span></div><div class="comment-body">还有就是绿数字大概在 350 左右。感觉再往下降也还有余力……</div></div><div class="comment-item"><div class="comment-head"><span class="comment-author is-owner">かみゆー（作者）</span><span>2017.05.22</span></div><div class="comment-body">你可以去变速曲的低速段里死盯判定线试着打发光，就会很容易发现自己其实是在判定线相当靠上的地方敲下去的。如果不追求分数的话其实没什么妨碍，但考虑到长远发展，还是能在判定线上稳稳目押会更好。</div></div><div class="comment-item"><div class="comment-head"><span class="comment-author">ER</span><span>2017.05.22</span></div><div class="comment-body">下次去机厅的时候我确认一下！非常感谢！</div></div></div></div></section>
+      </article>
+
+      <nav class="article-footer-nav">
+        <a class="nav-card" href="./7707.html"><small>← 同分类上一篇</small><strong>IIDX（弐寺）倍速与变速调速（Gear Change）教程｜FHS、CHS 的区别与绿数字计算</strong></a><a class="nav-card" href="./6224.html"><small>同分类下一篇 →</small><strong>IIDX（弐寺）绿数字参考标准是多少？各段位平均值与白数字（SUD+・LIFT）设置指南</strong></a>
+      </nav>
+    </div>
+
+    <aside class="toc-aside"><div class="toc-heading">文章目录</div><ul class="toc-nav"><li class="toc-h2"><a href="#sec-1">什么是判定时机调整</a></li><li class="toc-h3"><a href="#sec-2">与绿数字的区别</a></li><li class="toc-h2"><a href="#sec-3">FAST・SLOW 偏多时该往哪边调？</a></li><li class="toc-h3"><a href="#sec-4">应该调多少？</a></li><li class="toc-h2"><a href="#sec-5">判定调整的做法</a></li><li class="toc-h2"><a href="#sec-6">调判定时的 5 个心得</a></li><li class="toc-h3"><a href="#sec-7">比起耳朵（节奏感），用眼睛对齐</a></li><li class="toc-h3"><a href="#sec-8">用有一定音符数的简单曲子来调</a></li><li class="toc-h3"><a href="#sec-9">FAST・SLOW 的比例仅供参考</a></li><li class="toc-h3"><a href="#sec-10">找到位置后，专心让身体去适应</a></li><li class="toc-h3"><a href="#sec-11">不要根据当天状态或曲目乱改</a></li><li class="toc-h2"><a href="#sec-12">调了判定依然偏时的原因</a></li><li class="toc-h2"><a href="#sec-13">判定时机自动调整可以用吗？</a></li><li class="toc-h2"><a href="#sec-14">判定调整常见问题</a></li><li class="toc-h2"><a href="#sec-15">总结</a></li><li class="toc-h2"><a href="#comments">💬 评论区答疑</a></li></ul></aside>
+  </div>
+
+  <div id="lightbox" role="dialog" aria-modal="true">
+    <div class="lb-box">
+      <div class="lb-bar">
+        <span id="lb-count"></span>
+        <div class="lb-btns">
+          <button id="lb-prev" class="lb-btn" type="button">← 上一张</button>
+          <button id="lb-next" class="lb-btn" type="button">下一张 →</button>
+          <button id="lb-close" class="lb-btn" type="button">关闭 (ESC)</button>
+        </div>
+      </div>
+      <img id="lb-img" alt="" />
+      <p id="lb-cap"></p>
+    </div>
+  </div>
+
+  <script src="../assets/site.js"></script>
+</body>
+</html>
